@@ -2,6 +2,7 @@
 
  <%@ include file="common/header.jspf"  %>
  <%@ include file="common/navigation.jspf" %>
+ 
   <h1>Welcome  ${name}  </h1>
   <h3>Your To Do List's </h3>
   <hr></hr>

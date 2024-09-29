@@ -2,23 +2,41 @@ package com.webdevelopemnt.SpringWeb.todo;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 
 
+@Entity
 public class Todo {
 	
+	@Id
+	@GeneratedValue
 	private int id;
-	private String userName;
-	@Size(min=10, message="Enter at least 10 digits ")
+	
+	
+	private String username;
+	
+	
+	@Size(min=15, message="Enter at least 10 digits ")
 	private String description;
+	
+	
 	private LocalDate targetDate;
+	
+	
 	private boolean done;
+	
+	public Todo() {
+		
+	}
 	
 	public Todo(int id, String userName, String description, LocalDate targetDate, boolean done) {
 		super();
 		this.id = id;
-		this.userName = userName;
+		this.username = userName;
 		this.description = description;
 		this.targetDate = targetDate;
 		this.done = done;
@@ -33,11 +51,11 @@ public class Todo {
 	}
 
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.username = userName;
 	}
 
 	public String getDescription() {
@@ -66,7 +84,7 @@ public class Todo {
 
 	@Override
 	public String toString() {
-		return "Todo [id=" + id + ", userName=" + userName + ", description=" + description + ", targetDate="
+		return "Todo [id=" + id + ", userName=" + username + ", description=" + description + ", targetDate="
 				+ targetDate + ", done=" + done + "]";
 	}
 	

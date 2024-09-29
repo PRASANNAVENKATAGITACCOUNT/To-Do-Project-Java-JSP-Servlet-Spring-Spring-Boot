@@ -29,7 +29,8 @@ public class TodoService {
 	}
 	
 	public List<Todo> getAllTodos(String userName){
-		return todos;
+		Predicate<? super Todo> predicate = todo -> todo.getUserName().equalsIgnoreCase(userName);
+		return todos.stream().filter(predicate).toList();
 	}
 	
 	public void addTodo(String username, String description, LocalDate targetDate, boolean isDone) {
@@ -52,5 +53,7 @@ public class TodoService {
 		deleteById(todo.getId());
 		todos.add(todo);
 	}
+	
+	
 
 }
